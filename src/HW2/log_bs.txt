@@ -1,0 +1,24 @@
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: 36 и 45 поменяли местами!
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: [36, 45, 27, 98, 56, 67, 78]
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: 27 и 45 поменяли местами!
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: [36, 27, 45, 98, 56, 67, 78]
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: 56 и 98 поменяли местами!
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: [36, 27, 45, 56, 98, 67, 78]
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: 67 и 98 поменяли местами!
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: [36, 27, 45, 56, 67, 98, 78]
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: 78 и 98 поменяли местами!
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: [36, 27, 45, 56, 67, 78, 98]
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: 27 и 36 поменяли местами!
+янв. 26, 2023 5:40:02 PM HW2.Task2 BubbleSort
+INFO: [27, 36, 45, 56, 67, 78, 98]
