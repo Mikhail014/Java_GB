@@ -1,12 +1,32 @@
 package HW3;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class Task1 {
     public static void main(String[] args) {
-        int[] sortArr = {12, 6, 4, 1, 15, 10};
+        int[] sortArr = new int[10];
+        AddRandomNums(sortArr);
+        System.out.print("Исходный массив: ");
+        PrintArr(sortArr);
         int[] res = mergeSort(sortArr);
-        System.out.println("Результат: " + Arrays.toString(res));
+        System.out.println();
+        System.out.print("Результат: ");
+        PrintArr(res);
+    }
+
+    public static void PrintArr(int[] arr){
+        for (Integer item: arr){
+            System.out.print(item + " ");
+        }
+    }
+
+    public static void AddRandomNums(int[] arr){
+        Random r = new Random();
+        for (int i = 0; i < 10; i++) {
+            arr[i] = r.nextInt(10);
+        }
     }
 
     public static int[] mergeSort(int[] sortArr) {
