@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class Task2 {
     public static void main(String[] args) {
-        Queue<Integer> listNums = new LinkedList<>();
+        List<Integer> listNums = new LinkedList<>();
         listNums.add(1);
         listNums.add(2);
         listNums.add(3);
@@ -29,19 +29,25 @@ public class Task2 {
         PrintList(listNums);
     }
 
-    public static void EnQueue(Queue<Integer> list, Integer elem){
+    // Добавляет указанный элемент в конец этого списка
+    public static void EnQueue(List<Integer> list, Integer elem){
         list.add(elem);
     }
 
-    public static Integer DeQueue(Queue<Integer> list){
-        return list.remove();
+    // Удаляет элемент в указанной позиции в этом списке.
+    // Сдвигает любые последующие элементы влево (вычитает единицу из их индексов).
+    // Возвращает элемент, который был удален из списка.
+    public static Integer DeQueue(List<Integer> list){
+        return list.remove(0);
     }
-    public static Integer First(Queue<Integer> list){
-        return list.element();
+
+    // Возвращает элемент в указанной позиции в этом списке.
+    public static Integer First(List<Integer> list){
+        return list.get(0);
     }
 
 
-    public static void PrintList(Queue<Integer> list){
+    public static void PrintList(List<Integer> list){
         for (Integer item: list){
             System.out.print(item + " ");
         }
