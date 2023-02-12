@@ -1,16 +1,17 @@
 package HW6;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Notebook n1 = new Notebook("Asus", 8, 256, "Windows 11", "Red", "Intel Core i7", 59_999);
-        Notebook n2 = new Notebook("Huawei", 8, 512, "Windows 11", "Gray", "Rayzen 7", 74_599);
-        Notebook n3 = new Notebook("MacBook", 8, 512, "MacOs", "Darkgray", "Apple M1", 119_999);
-        Notebook n4 = new Notebook("MSI", 16, 512, "Windows 11", "Black", "Rayzen 9", 129_999);
-        Notebook n5 = new Notebook("Dell", 4, 128, "Windows 10", "White", "Intel Core i3", 24_599);
+        Notebook n1 = new Notebook("Asus", 8, 256, "Windows 11", "Красный", "Intel Core i7", 59_999);
+        Notebook n2 = new Notebook("Huawei", 8, 512, "Windows 11", "Серый", "Rayzen 7", 74_599);
+        Notebook n3 = new Notebook("MacBook", 8, 512, "MacOs", "Темносерый", "Apple M1", 119_999);
+        Notebook n4 = new Notebook("MSI", 16, 512, "Windows 11", "Черный", "Rayzen 9", 129_999);
+        Notebook n5 = new Notebook("Dell", 4, 128, "Windows 10", "Белый", "Intel Core i3", 24_599);
 
         HashSet<Notebook> notebooks = new HashSet<>();
         notebooks.add(n1);
@@ -40,14 +41,18 @@ public class Main {
     }
 
     public static void OutputByCriterion(HashSet<Notebook> set){
+        HashMap<Integer, String> criteria = new HashMap<>();
+        criteria.put(1, "Оперативная память");
+        criteria.put(2, "Объем памяти (SSD)");
+        criteria.put(3, "Операционная система");
+        criteria.put(4, "Процессор");
+        criteria.put(5, "Цвет");
+        criteria.put(6, "Цена");
         System.out.println();
         System.out.println("Выберите критерий:");
-        System.out.println("1. Оперативная память;");
-        System.out.println("2. Объем памяти (SSD);");
-        System.out.println("3. Операционная система;");
-        System.out.println("4. Процессор;");
-        System.out.println("5. Цвет;");
-        System.out.println("6. Цена.");
+        for (var el: criteria.entrySet()){
+            System.out.println(el.getKey() + ": " + el.getValue());
+        }
         System.out.print("Ответ: ");
         System.out.println();
         int choice = GetInputInt();
@@ -57,11 +62,13 @@ public class Main {
         }
 
         System.out.println();
+        System.out.println("Имя | " + criteria.get(choice));
+        System.out.println("---------------");
         for (Notebook el: set){
             if (choice == 1) {
-                System.out.println(el.name + " | " + el.ram);
+                System.out.println(el.name + " | " + el.ram + " ГБ");
             } else if (choice == 2) {
-                System.out.println(el.name + " | " + el.memory);
+                System.out.println(el.name + " | " + el.memory + " ГБ");
             } else if (choice == 3) {
                 System.out.println(el.name + " | " + el.os);
             } else if (choice == 4) {
@@ -69,7 +76,7 @@ public class Main {
             } else if (choice == 5) {
                 System.out.println(el.name + " | " + el.color);
             } else {
-                System.out.println(el.name + " | " + el.price);
+                System.out.println(el.name + " | " + el.price + " рублей");
             }
 
         }
