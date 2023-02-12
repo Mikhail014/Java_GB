@@ -1,8 +1,6 @@
 package HW6;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -25,10 +23,15 @@ public class Main {
         System.out.println("-----------------------------");
         PrintSet(notebooks);
         OutputByCriterion(notebooks);
+        System.out.println();
+
+        SortNotebooks(notebooks);
     }
 
-    public static void PrintSet(HashSet<Notebook> set){
+    public static void PrintSet(Set<Notebook> set){
         System.out.println();
+        System.out.println("Имя | ОЗУ | SSD | Операционная система | Цвет | Процессор | Цена");
+        System.out.println("-----------------------------------------------------------------------");
         for (Notebook el: set){
             System.out.println(el);
         }
@@ -41,6 +44,7 @@ public class Main {
     }
 
     public static void OutputByCriterion(HashSet<Notebook> set){
+        System.out.println();
         HashMap<Integer, String> criteria = new HashMap<>();
         criteria.put(1, "Оперативная память");
         criteria.put(2, "Объем памяти (SSD)");
@@ -48,16 +52,15 @@ public class Main {
         criteria.put(4, "Процессор");
         criteria.put(5, "Цвет");
         criteria.put(6, "Цена");
-        System.out.println();
         System.out.println("Выберите критерий:");
         for (var el: criteria.entrySet()){
             System.out.println(el.getKey() + ": " + el.getValue());
         }
-        System.out.print("Ответ: ");
         System.out.println();
+        System.out.print("Ответ: ");
         int choice = GetInputInt();
-        while (choice < 1 || choice > 6) {
-            System.out.print("Ошибка! Введите число от 1 до 5: ");
+        while (choice < 1 || choice > criteria.size()) {
+            System.out.print("Ошибка! Введите число от 1 до " + criteria.size() + ": ");
             choice = GetInputInt();
         }
 
@@ -81,6 +84,34 @@ public class Main {
 
         }
         System.out.println();
+    }
+
+    public static void SortNotebooks(HashSet<Notebook> set){
+        System.out.println();
+        System.out.println("Как отсортировать ноутбуки?");
+        System.out.println("1. В алфавитном порядке;");
+        System.out.println("2. По цене (по убыванию).");
+        System.out.println();
+        System.out.print("Ответ: ");
+        int choice = GetInputInt();
+        while (choice < 1 || choice > 2) {
+            System.out.print("Ошибка! Введите число от 1 до 2: ");
+            choice = GetInputInt();
+        }
+
+        System.out.println();
+        int finalChoice = choice;
+        TreeSet<Notebook> notebookTreeSet = new TreeSet<>(new Comparator<Notebook>() {
+            @Override
+            public int compare(Notebook o1, Notebook o2) {
+                if (finalChoice == 1) {
+                    return o1.toString().compareTo(o2.toString());
+                }
+                return o2.price - o1.price;
+            }
+        });
+        notebookTreeSet.addAll(set);
+        PrintSet(notebookTreeSet);
     }
 
 }

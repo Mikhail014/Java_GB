@@ -24,12 +24,12 @@ public class Notebook {
 
     @Override
     public String toString() {
-        return name + " | " + ram + "ГБ | " + memory + "ГБ | " + os + " | " + color + " | " + cpu + " | "
+        return name + " | " + ram + " ГБ | " + memory + " ГБ | " + os + " | " + color + " | " + cpu + " | "
                 + price + " рублей";
     }
 
     void Print(){
-        System.out.println(name + " | " + ram + "ГБ | " + memory + "ГБ | " + os + " | " + color + " | " + cpu
+        System.out.println(name + " | " + ram + " ГБ | " + memory + " ГБ | " + os + " | " + color + " | " + cpu
                 + " | " + price + " рублей");
     }
 
